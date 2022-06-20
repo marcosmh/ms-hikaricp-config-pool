@@ -1,4 +1,3 @@
-/*
 package mx.com.hikaricp.app.apiservice.config;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -22,10 +21,8 @@ import javax.persistence.PersistenceException;
 import javax.sql.DataSource;
 
 
-*/
-/**
- * The type Configuration app movil.
- *//*
+
+
 
 @Configuration
 @EnableTransactionManagement
@@ -43,21 +40,14 @@ public class ConfigurationRH {
     @Autowired
     private DataSourceRH datasource2;
 
-    */
-/**
-     * Instantiates a new Configuration app movil.
-     *//*
+
 
     public ConfigurationRH() {
 
     }
 
-    */
-/**
-     * Hikari config appmovil hikari config.
-     *
-     * @return the hikari config
-     *//*
+
+
 
     @Bean("hikariConfigRH")
     public HikariConfig hikariConfigRH() {
@@ -73,42 +63,46 @@ public class ConfigurationRH {
             config.setMinimumIdle(5);
             config.setMaximumPoolSize(5);
             config.setIdleTimeout(300000);
+            LOGGER.info(" config ==="+config.getSchema()+"  --- "+config.getDataSourceClassName()+" --- "+config.getDataSource()+" ---- "+config.getDriverClassName());
             return config;
         } catch (Exception e) {
+            LOGGER.info("=============================");
+            LOGGER.info(datasource2.getDriver());
+            LOGGER.info(datasource2.getDriver());
+            LOGGER.info(datasource2.getUrl());
+            LOGGER.info(datasource2.getUsername());
+            LOGGER.info(datasource2.getPassword());
+            LOGGER.info("=============================");
+
             LOGGER.error("Error en hikariConfigRH:  ",e);
+            LOGGER.error("Error en hikariConfigRH2:  ",e.getMessage());
             return config;
         }
 
     }
 
 
-    */
-/**
-     * Second data source data source.
-     *
-     * @return the data source
-     *//*
 
-    @Bean("dataSourceRH")
+
+
+    @Bean("secondDataSource")
     public DataSource secondDataSource() {
         try {
             return new HikariDataSource(hikariConfigRH());
         } catch (BeanInstantiationException e) {
             LOGGER.error("BeanInstantiationException en ConfigurationRH :: secondDataSource: ",e);
         } catch(Exception e) {
+            LOGGER.info("Error = "+e.getMessage());
+            LOGGER.info("Error Cause = "+e.getCause());
+            LOGGER.info("Error = "+e.getStackTrace());
             LOGGER.error("Exception en ConfigurationRH :: secondDataSource: ",e);
         }
         return null;
     }
 
 
-    */
-/**
-     * Entity manager factory local container entity manager factory bean.
-     *
-     * @param builder the builder
-     * @return the local container entity manager factory bean
-     *//*
+
+
 
     @Bean("entityManagerFactoryRH")
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryRH(EntityManagerFactoryBuilder builder) {
@@ -116,7 +110,7 @@ public class ConfigurationRH {
             return builder
                     .dataSource(secondDataSource())
                     .packages("mx.com.hikaricp.app.apiservice")
-                    .persistenceUnit(datasource2.getSchema().toLowerCase())
+                    .persistenceUnit(datasource2.getSchema())
                     .build();
         } catch (PersistenceException e) {
             LOGGER.error("Error en RH :: entityManagerFactory: ",e);
@@ -126,13 +120,6 @@ public class ConfigurationRH {
     }
 
 
-    */
-/**
-     * Transaction manager platform transaction manager.
-     *
-     * @param emf the emf
-     * @return the platform transaction manager
-     *//*
 
     @Bean("transactionManagerRH")
     public PlatformTransactionManager transactionManagerAppMovil(@Qualifier("entityManagerFactoryRH") EntityManagerFactory emf){
@@ -148,4 +135,3 @@ public class ConfigurationRH {
 
 
 }
-*/

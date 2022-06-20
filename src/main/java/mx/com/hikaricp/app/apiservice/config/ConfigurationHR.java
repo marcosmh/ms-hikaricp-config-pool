@@ -69,9 +69,7 @@ public class ConfigurationHR {
             config.setJdbcUrl(datasource1.getUrl());
             config.setUsername(datasource1.getUsername());
             config.setPassword(datasource1.getPassword());
-            config.setSchema(datasource1.getSchema().toLowerCase());
-            //config.setSchema("DEV");
-
+            config.setSchema(datasource1.getSchema());
             config.setConnectionTimeout(6000);
             config.setMinimumIdle(5);
             config.setMaximumPoolSize(5);
