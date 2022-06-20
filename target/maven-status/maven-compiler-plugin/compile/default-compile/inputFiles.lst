@@ -1,0 +1,17 @@
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/config/DataSourceRH.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/config/ConfigurationRH.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/employee/service/IEmployeeService.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/departments/service/DepartmentsService.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/beans/Cadena.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/model/db2/Departments.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/HikariApp.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/employee/repository/IEmployeeRepository.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/operaciones/controller/OperacionesController.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/config/ConfigurationHR.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/employee/controller/EmployeeController.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/model/db1/Employee.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/departments/service/IDepartmentsService.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/departments/repository/IDepartmentsRepository.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/beans/Response.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/employee/service/EmployeeService.java
+/Users/marcosmh/DevTraining/ms-hikaricp-config-pool/src/main/java/mx/com/hikaricp/app/apiservice/config/DataSourceHR.java
