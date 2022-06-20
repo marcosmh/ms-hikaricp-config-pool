@@ -11,7 +11,7 @@ import javax.persistence.Table;
  * The type Departments.
  */
 @Entity
-@Table(name = "DUMMY_DEPARTMENTS", schema="DEV")
+@Table(name = "DUMMY_DEPARTMENTS")
 public class Departments {
 
     /** The id. */

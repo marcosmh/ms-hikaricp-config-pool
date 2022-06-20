@@ -2,11 +2,12 @@ package mx.com.hikaricp.app.apiservice.employee.controller;
 
 import java.util.List;
 
-//import mx.com.hikaricp.app.apiservice.departments.service.IDepartmentsService;
+import mx.com.hikaricp.app.apiservice.departments.service.IDepartmentsService;
 import mx.com.hikaricp.app.apiservice.employee.service.IEmployeeService;
 import mx.com.hikaricp.app.apiservice.model.db1.Employee;
-//import mx.com.hikaricp.app.apiservice.model.db2.Departments;
 
+
+import mx.com.hikaricp.app.apiservice.model.db2.Departments;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,8 +39,8 @@ public class EmployeeController {
 	@Autowired
 	private IEmployeeService service;
 
-	//@Autowired
-	//private IDepartmentsService serviceDepartments;
+	@Autowired
+	private IDepartmentsService serviceDepartments;
 
 
 
@@ -102,11 +103,11 @@ public class EmployeeController {
 		service.deleteById(id);
 	}
 
-    /*
+
 	@PatchMapping("/{id}")
 	public ResponseEntity<Departments> consultarDepartamentosPorId(@PathVariable("id") Long id) {
 		LOGGER.info("Peticion recibida para consultar departamentos por id: " +  id);
 		return new ResponseEntity<Departments>(serviceDepartments.findById(id),HttpStatus.OK);
-	}*/
+	}
 	
 }

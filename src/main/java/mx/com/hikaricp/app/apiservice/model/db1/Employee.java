@@ -10,7 +10,7 @@ import javax.persistence.Table;
  * The Class Employee.
  */
 @Entity
-@Table(name = "DUMMY_EMPLOYEES",schema = "DEV")
+@Table(name = "DUMMY_EMPLOYEES")
 public class Employee {
 
 	/** The id. */
