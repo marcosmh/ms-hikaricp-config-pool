@@ -1,9 +1,8 @@
 # ms-hikaricp-config-pool
 
-## ms-hikaricp-config-pool
+## Pool de Conexiones con HikariCP
 
-Pool de Conexiones con HikariCP
-
+Conexiones a multiples bases de datos
 <br/>
 
 ### Especificaciones:
