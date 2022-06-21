@@ -16,46 +16,33 @@ import java.io.Serializable;
 public class DataSourceRH implements Serializable {
 
 
-
     private static final long serialVersionUID = 1L;
-
 
 
     @Value("${spring.datasource2.username}")
     private String username;
 
 
-
     @Value("${spring.datasource2.password}")
     private String password;
-
 
 
     @Value("${spring.datasource2.driver-class-name}")
     private String driver;
 
 
-
     @Value("${spring.datasource2.url}")
     private String url;
-
 
 
     @Value("${data.db.schema.db2}")
     private String schema;
 
 
-
     private Long connectiontime;
 
 
-
     private int poolsize;
-
-
-
-
-
 
 
     public DataSourceRH() {
@@ -63,12 +50,9 @@ public class DataSourceRH implements Serializable {
     }
 
 
-
     public String getUsername() {
         return username;
     }
-
-
 
 
     public void setUsername(String username) {
@@ -76,13 +60,9 @@ public class DataSourceRH implements Serializable {
     }
 
 
-
-
     public String getPassword() {
         return password;
     }
-
-
 
 
     public void setPassword(String password) {
@@ -118,8 +98,6 @@ public class DataSourceRH implements Serializable {
     public void setConnectiontime(Long connectiontime) {
         this.connectiontime = connectiontime;
     }
-
-
 
 
     public int getPoolsize() {

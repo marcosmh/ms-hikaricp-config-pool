@@ -65,7 +65,6 @@ public class ConfigurationHR {
         try {
             LOGGER.info("hikariConfigHR");
             config.setDriverClassName(datasource1.getDriver());
-            //config.setDataSourceClassName(datasource1.getDriver());
             config.setJdbcUrl(datasource1.getUrl());
             config.setUsername(datasource1.getUsername());
             config.setPassword(datasource1.getPassword());
@@ -74,24 +73,12 @@ public class ConfigurationHR {
             config.setMinimumIdle(5);
             config.setMaximumPoolSize(5);
             config.setIdleTimeout(300000);
-            LOGGER.info(" config ==="+config.getSchema()+"  --- "+config.getDataSourceClassName()+" --- "+config.getDataSource()+" ---- "+config.getDriverClassName());
-
-            return config;
-
+            LOGGER.info("Conexion a HR [OK]");
         } catch (Exception e) {
-            LOGGER.info("=============================");
-            LOGGER.info(datasource1.getDriver());
-            LOGGER.info(datasource1.getDriver());
-            LOGGER.info(datasource1.getUrl());
-            LOGGER.info(datasource1.getUsername());
-            LOGGER.info(datasource1.getPassword());
-            LOGGER.info("=============================");
-
+            LOGGER.info("Conexion a HR [Failed]");
             LOGGER.error("Error en hikariConfigHR:  ",e);
-            LOGGER.error("Error en hikariConfigHR2:  ",e.getMessage());
-            return config;
         }
-
+        return config;
 
     }
 
@@ -109,9 +96,6 @@ public class ConfigurationHR {
         } catch (BeanInstantiationException e) {
             LOGGER.error("BeanInstantiationException en HR :: primaryDataSource: ",e);
         } catch(Exception e) {
-            LOGGER.info("Error = "+e.getMessage());
-            LOGGER.info("Error Cause = "+e.getCause());
-            LOGGER.info("Error = "+e.getStackTrace());
             LOGGER.error("Exception en HR :: primaryDataSource: ",e);
         }
         return null;
@@ -152,21 +136,12 @@ public class ConfigurationHR {
     public PlatformTransactionManager transactionManagerHR(@Qualifier("entityManagerFactoryHR") EntityManagerFactory emf){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         try {
-            //emf = Persistence.createEntityManagerFactory(dsAfoGNP.getSchema().toLowerCase());
-            //emf = (EntityManagerFactory) emf.createEntityManager();
             transactionManager.setDataSource(primaryDataSource());
-
-            //transactionManager.setPersistenceUnitName(datasource1.getSchema().toLowerCase());
-            //transactionManager.setEntityManagerFactory(emf);
-
-
-
-            return transactionManager;
+            transactionManager.setEntityManagerFactory(emf);
         } catch(PersistenceException e) {
             LOGGER.error("Error :: HR :: transactionManager: ",e);
-            return transactionManager;
         }
-
+        return transactionManager;
     }
 
 }

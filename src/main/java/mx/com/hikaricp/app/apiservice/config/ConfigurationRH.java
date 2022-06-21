@@ -63,19 +63,9 @@ public class ConfigurationRH {
             config.setMinimumIdle(5);
             config.setMaximumPoolSize(5);
             config.setIdleTimeout(300000);
-            LOGGER.info(" config ==="+config.getSchema()+"  --- "+config.getDataSourceClassName()+" --- "+config.getDataSource()+" ---- "+config.getDriverClassName());
             return config;
         } catch (Exception e) {
-            LOGGER.info("=============================");
-            LOGGER.info(datasource2.getDriver());
-            LOGGER.info(datasource2.getDriver());
-            LOGGER.info(datasource2.getUrl());
-            LOGGER.info(datasource2.getUsername());
-            LOGGER.info(datasource2.getPassword());
-            LOGGER.info("=============================");
-
             LOGGER.error("Error en hikariConfigRH:  ",e);
-            LOGGER.error("Error en hikariConfigRH2:  ",e.getMessage());
             return config;
         }
 
@@ -92,9 +82,6 @@ public class ConfigurationRH {
         } catch (BeanInstantiationException e) {
             LOGGER.error("BeanInstantiationException en ConfigurationRH :: secondDataSource: ",e);
         } catch(Exception e) {
-            LOGGER.info("Error = "+e.getMessage());
-            LOGGER.info("Error Cause = "+e.getCause());
-            LOGGER.info("Error = "+e.getStackTrace());
             LOGGER.error("Exception en ConfigurationRH :: secondDataSource: ",e);
         }
         return null;
@@ -125,12 +112,12 @@ public class ConfigurationRH {
     public PlatformTransactionManager transactionManagerAppMovil(@Qualifier("entityManagerFactoryRH") EntityManagerFactory emf){
         JpaTransactionManager transactionManager = new JpaTransactionManager();
         try {
+            transactionManager.setDataSource(secondDataSource());
             transactionManager.setEntityManagerFactory(emf);
-            return transactionManager;
         } catch (Exception e) {
             LOGGER.error("Error :: RH :: transactionManager: ",e);
-            return transactionManager;
         }
+        return transactionManager;
     }
 
 
