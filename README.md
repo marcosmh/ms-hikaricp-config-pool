@@ -12,3 +12,13 @@ Conexiones a multiples bases de datos
 - Spring JPA
 - Swagger
 - Hikari
+
+### Run the application
+```
+mvn spring-boot:run
+```
+
+### Swagger
+```
+http://localhost:8181/swagger-ui/index.html
+```
