@@ -12,13 +12,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
  */
 @SpringBootApplication
 @EnableAutoConfiguration
-
-//@SpringBootApplication(scanBasePackages = {"mx.com.hikaricp.app.apiservice"})
-//@EntityScan(basePackages = "mx.com.hikaricp.app.apiservice")
-
-//@ComponentScan(basePackages = "mx.com.hikaricp.app.apiservice")
-//@EnableJpaRepositories("mx.com.hikaricp.app.apiservice.employee.repository")
-
+@EntityScan(basePackages = "mx.com.hikaricp.app.apiservice")
 public class HikariApp {
 
 	/**

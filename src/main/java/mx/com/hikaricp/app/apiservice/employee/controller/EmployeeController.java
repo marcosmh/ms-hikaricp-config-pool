@@ -1,5 +1,6 @@
 package mx.com.hikaricp.app.apiservice.employee.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mx.com.hikaricp.app.apiservice.departments.service.IDepartmentsService;
@@ -8,6 +9,7 @@ import mx.com.hikaricp.app.apiservice.model.db1.Employee;
 
 
 import mx.com.hikaricp.app.apiservice.model.db2.Departments;
+import org.hibernate.service.spi.ServiceException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +25,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
+import static org.springframework.http.HttpStatus.OK;
 
 
 /**
@@ -42,7 +47,7 @@ public class EmployeeController {
 	@Autowired
 	private IDepartmentsService serviceDepartments;
 
-
+	HttpStatus status = INTERNAL_SERVER_ERROR;
 
 
 	/**
@@ -53,7 +58,15 @@ public class EmployeeController {
 	@GetMapping
 	public ResponseEntity<List<Employee>> consultarEmpleados() {
 		LOGGER.info("Peticion recibida para consultar los empleados");
-		return new ResponseEntity<List<Employee>>(service.findAll(),HttpStatus.OK);		
+		List<Employee> employees = new ArrayList<Employee>();
+		try {
+			employees = service.findAll();
+			LOGGER.info("Consulta de empleados Exitosa.");
+			status = OK;
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al consultar los empleados: ",e);
+		}
+		return new ResponseEntity<List<Employee>>(employees,status);
 	}
 
 	/**
@@ -65,7 +78,15 @@ public class EmployeeController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Employee> consultarEmpleadoPorId(@PathVariable("id") Long id) {
 		LOGGER.info("Peticion recibida para consultar empleado por id: " +  id);
-		return new ResponseEntity<Employee>(service.findById(id),HttpStatus.OK);		
+		Employee employee = new Employee();
+		try {
+			employee = service.findById(id);
+			LOGGER.info("Consulta de empleado por id Exitosa.");
+			status = OK;
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al consultar empleado por id: ",e);
+		}
+		return new ResponseEntity<Employee>(employee,status);
 	}
 
 	/**
@@ -77,7 +98,15 @@ public class EmployeeController {
 	@PostMapping
 	public ResponseEntity<Employee> guardarEmpleado(@RequestBody Employee employee) {
 		LOGGER.info("Peticion recibida para guardar Empleado");
-		return new ResponseEntity<Employee>(service.save(employee),HttpStatus.OK);
+		Employee saveEmployee = new Employee();
+		try {
+			saveEmployee = service.save(employee);
+			LOGGER.info("Se ha guardado correctamente el empleado");
+			status = OK;
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al guardar el empleado: ",e);
+		}
+		return new ResponseEntity<Employee>(saveEmployee,status);
 	}
 
 	/**
@@ -89,7 +118,15 @@ public class EmployeeController {
 	@PutMapping
 	public ResponseEntity<Employee> actualizarEmpleado(@RequestBody Employee employee) {
 		LOGGER.info("Peticion recibida para actualizar empleado");
-		return new ResponseEntity<Employee>(service.update(employee),HttpStatus.OK);
+		Employee updateEmployee = new Employee();
+		try {
+			updateEmployee = service.update(employee);
+			LOGGER.info("Se ha actualizado correctamente el empleado");
+			status = OK;
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al actualizar el empleado: ",e);
+		}
+		return new ResponseEntity<Employee>(updateEmployee,status);
 	}
 
 	/**
@@ -100,14 +137,27 @@ public class EmployeeController {
 	@DeleteMapping("/{id}")
 	public void borrarEmpleadoPorId(@PathVariable("id") Long id) {
 		LOGGER.info("Peticion recibida para borrar Empleado por id: " +  id);
-		service.deleteById(id);
+		try {
+			service.deleteById(id);
+			LOGGER.info("Se elemino correctamente el Departamento por id");
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al eliminar el empleado: ",e);
+		}
 	}
 
 
 	@PatchMapping("/{id}")
 	public ResponseEntity<Departments> consultarDepartamentosPorId(@PathVariable("id") Long id) {
 		LOGGER.info("Peticion recibida para consultar departamentos por id: " +  id);
-		return new ResponseEntity<Departments>(serviceDepartments.findById(id),HttpStatus.OK);
+		Departments departments = new Departments();
+		try {
+			departments = serviceDepartments.findById(id);
+			LOGGER.info("Consulta de Departamento por id Exitosa.");
+			status = OK;
+		} catch (ServiceException e ) {
+			LOGGER.error("Error al consultar Departamento por id: ",e);
+		}
+		return new ResponseEntity<Departments>(departments,status);
 	}
 	
 }
