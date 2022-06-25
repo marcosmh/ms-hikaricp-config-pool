@@ -1,0 +1,99 @@
+{
+  "groups": [
+    {
+      "name": "hr",
+      "type": "mx.com.hikaricp.app.apiservice.config.DataSourceHR",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "rh",
+      "type": "mx.com.hikaricp.app.apiservice.config.DataSourceRH",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    }
+  ],
+  "properties": [
+    {
+      "name": "hr.connectiontime",
+      "type": "java.lang.Long",
+      "description": "Variable connectiontime de tipo Long.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.driver",
+      "type": "java.lang.String",
+      "description": "Variable driver de tipo String.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.password",
+      "type": "java.lang.String",
+      "description": "Variable password de tipo String.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.poolsize",
+      "type": "java.lang.Integer",
+      "description": "Variable poolsize de tipo int.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.schema",
+      "type": "java.lang.String",
+      "description": "The schema.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.url",
+      "type": "java.lang.String",
+      "description": "Variable url de tipo String.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "hr.username",
+      "type": "java.lang.String",
+      "description": "The username.",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceHR"
+    },
+    {
+      "name": "rh.connectiontime",
+      "type": "java.lang.Long",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.driver",
+      "type": "java.lang.String",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.password",
+      "type": "java.lang.String",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.poolsize",
+      "type": "java.lang.Integer",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.schema",
+      "type": "java.lang.String",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.url",
+      "type": "java.lang.String",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "rh.username",
+      "type": "java.lang.String",
+      "sourceType": "mx.com.hikaricp.app.apiservice.config.DataSourceRH"
+    },
+    {
+      "name": "spring.sql.init.schema-locationsocations",
+      "type": "java.lang.String",
+      "description": "A description for 'spring.sql.init.schema-locationsocations'"
+    }
+  ],
+  "hints": []
+}
